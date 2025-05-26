@@ -70,4 +70,5 @@ dependencies {
 
 //    Dagger
     ksp (libs.dagger.compiler)
+    implementation (libs.dagger)
 }
