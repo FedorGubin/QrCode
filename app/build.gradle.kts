@@ -85,4 +85,7 @@ dependencies {
     implementation(libs.androidx.camera.view)
     implementation(libs.androidx.camera.mlkit.vision)
     implementation(libs.androidx.camera.extensions)
+
+//    Decompose
+    implementation(libs.decompose)
 }
