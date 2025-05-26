@@ -71,4 +71,9 @@ dependencies {
 //    Dagger
     ksp (libs.dagger.compiler)
     implementation (libs.dagger)
+
+//    Ktor
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.client.logging)
 }
