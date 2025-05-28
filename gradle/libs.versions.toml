@@ -1,18 +1,18 @@
 [versions]
-agp = "8.3.1"
+agp = "8.6.1"
 cameraCore = "1.5.0-beta01"
 dagger = "2.56.2"
 decompose = "3.3.0"
-kotlin = "1.9.0"
-coreKtx = "1.15.0"
+kotlin = "2.1.20"
+coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 ktor = "3.1.3"
-lifecycleRuntimeKtx = "2.8.7"
-activityCompose = "1.9.3"
-composeBom = "2023.08.00"
-ksp = "1.9.0-1.0.13"
+lifecycleRuntimeKtx = "2.9.0"
+activityCompose = "1.10.1"
+composeBom = "2025.05.01"
+ksp = "2.1.20-2.0.1"
 
 [libraries]
 androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraCore" }
@@ -47,4 +47,5 @@ ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "kto
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
