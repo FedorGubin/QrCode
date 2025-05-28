@@ -10,6 +10,8 @@ import dagger.Provides
 @Module
 class AppModule(private val application: Application) {
 
+    // Удобно разделить на два провайдера с одним типом данных. Фича называется куалифаер
+
     @Provides
     @FirstGreeting
     fun provideString(): String = "Privet"

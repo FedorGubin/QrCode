@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     @SecondGreeting
-    lateinit var str: String
+    lateinit var str: String // нельзя, что бы переменная была приватная. И тут же используем фичу куалифаер
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
