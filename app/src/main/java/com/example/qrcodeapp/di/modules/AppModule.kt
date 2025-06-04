@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.example.qrcodeapp.di.FirstGreeting
 import com.example.qrcodeapp.di.SecondGreeting
+import com.example.qrcodeapp.di.WelcomeMessage
 import dagger.Module
 import dagger.Provides
 

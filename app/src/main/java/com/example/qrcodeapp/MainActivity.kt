@@ -10,8 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.qrcodeapp.di.ErrorMessage
 import com.example.qrcodeapp.di.FirstGreeting
 import com.example.qrcodeapp.di.SecondGreeting
+import com.example.qrcodeapp.di.WelcomeMessage
 import com.example.qrcodeapp.ui.theme.QRCodeAppTheme
 import javax.inject.Inject
 import javax.inject.Named
@@ -19,8 +21,11 @@ import javax.inject.Named
 class MainActivity : ComponentActivity() {
 
     @Inject
-    @SecondGreeting
-    lateinit var str: String // нельзя, что бы переменная была приватная. И тут же используем фичу куалифаер
+    @WelcomeMessage
+    lateinit var welcome: String // нельзя, что бы переменная была приватная. И тут же используем фичу куалифаер
+    @Inject
+    @ErrorMessage
+    lateinit var error: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting(str)
+                    Greeting(error)
                 }
             }
         }
@@ -42,7 +47,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "$name!",
         modifier = modifier
     )
 }

@@ -15,7 +15,7 @@ class QrCodeApplication : Application() {
 
         // создали даггер компоненет. Класс сгенерировался на основе AppComponent. Используется паттерн билдер (что то настраиваем на станке и метод build = запуск станка)
         _appComponent = DaggerAppComponent.builder()
-            .appModule(AppModule(application = this)) // из-за того, что AppModule имеет не пустой конструктор - его необходимо создавать в ручную! (например NetworkModule с пустым конструктором и даггер его создаёт сам)
+            .appModule(AppModule(application = this))
             .build()
     }
 }

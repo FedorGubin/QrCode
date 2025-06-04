@@ -9,3 +9,11 @@ annotation class FirstGreeting
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
 annotation class SecondGreeting
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class WelcomeMessage
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class ErrorMessage

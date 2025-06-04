@@ -6,11 +6,7 @@ import com.example.qrcodeapp.di.modules.NetworkModule
 import dagger.Component
 
 // все модули должны быть добавлены в компонент
-@Component(
-    modules = [
-        AppModule::class,
-        NetworkModule::class
-    ]
+@Component(modules = [AppModule::class, NetworkModule::class, MessageModule::class]
 )
 interface AppComponent {
 
