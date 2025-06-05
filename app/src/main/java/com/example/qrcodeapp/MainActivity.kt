@@ -20,12 +20,6 @@ import javax.inject.Named
 
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    @WelcomeMessage
-    lateinit var welcome: String // нельзя, что бы переменная была приватная. И тут же используем фичу куалифаер
-    @Inject
-    @ErrorMessage
-    lateinit var error: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting(error)
+
                 }
             }
         }
