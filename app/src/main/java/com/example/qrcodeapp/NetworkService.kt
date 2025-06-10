@@ -7,16 +7,18 @@ import io.ktor.client.request.get
 import io.ktor.http.ContentType
 import javax.inject.Inject
 
-class NetworkService @Inject constructor(private val client: HttpClient){
+class PingApiService @Inject constructor(
+    private val client: HttpClient
+) {
     suspend fun ping(): Boolean {
         return try {
             val response: String = client.get("https://httpbin.org/get") {
                 accept(ContentType.Application.Json)
             }.body()
-            println("Ping success: $response")
+
+            println("Ping successful: $response")
             true
-        }
-        catch (e: Exception) {
+        } catch (e: Exception) {
             println("Ping failed: ${e.localizedMessage}")
             false
         }
