@@ -1,4 +1,4 @@
-package com.example.qrcodeapp
+package com.example.qrcodeapp.data
 
 import com.example.qrcodeapp.domain.CounterRepository
 
