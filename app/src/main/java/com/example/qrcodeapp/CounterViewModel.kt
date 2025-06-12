@@ -7,14 +7,16 @@ import com.example.qrcodeapp.domain.GetCounterUseCase
 import com.example.qrcodeapp.domain.UpdateCounterUseCase
 import com.example.qrcodeapp.ui.CounterViewIntent
 import com.example.qrcodeapp.ui.CounterViewState
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 class CounterViewModel @Inject constructor(
     private val getCounterUseCase: GetCounterUseCase,
     private val updateCounterUseCase: UpdateCounterUseCase
 ): ViewModel() {
-    private val _state = MutableLiveData(CounterViewState())
-    val state: LiveData<CounterViewState> = _state
+    private val _state = MutableStateFlow(CounterViewState())
+    val state: StateFlow<CounterViewState> = _state
 
     init {
         loadInitialState()

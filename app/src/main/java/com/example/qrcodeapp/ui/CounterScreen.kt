@@ -12,6 +12,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -21,7 +22,7 @@ import com.example.qrcodeapp.CounterViewModel
 
 @Composable
 fun CounterScreen(viewModel: CounterViewModel) {
-    val state by viewModel.state.observeAsState()
+    val state by viewModel.state.collectAsState()
 
     Column(
         modifier = Modifier
