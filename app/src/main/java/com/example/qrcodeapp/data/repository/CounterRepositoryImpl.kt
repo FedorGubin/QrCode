@@ -1,8 +1,8 @@
-package com.example.qrcodeapp.data
+package com.example.qrcodeapp.data.repository
 
 import android.content.Context
-import com.example.qrcodeapp.domain.repository.CounterRepository
 import androidx.core.content.edit
+import com.example.qrcodeapp.domain.repository.CounterRepository
 
 class CounterRepositoryImpl(context: Context): CounterRepository {
     private val prefs = context.getSharedPreferences("counter_prefs", Context.MODE_PRIVATE)

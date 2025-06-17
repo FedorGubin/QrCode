@@ -9,14 +9,17 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class CounterViewModel @Inject constructor(
-    private val getCounterUseCase: GetCounterUseCase,
+    getCounterUseCase: GetCounterUseCase,
     private val updateCounterUseCase: UpdateCounterUseCase
 ) : ViewModel() {
-    private val _state = MutableStateFlow<CounterViewState>(CounterViewState())
+    private val _state = MutableStateFlow<CounterViewState>(
+        CounterViewState(count = getCounterUseCase.execute())
+    )
     val state: StateFlow<CounterViewState> = _state
 
     private val _uiEvent = MutableSharedFlow<UiEvent>(replay = 1).apply {
@@ -24,32 +27,42 @@ class CounterViewModel @Inject constructor(
     }
     val uiEvent: SharedFlow<UiEvent> = _uiEvent
 
-    init {
-        loadInitialState()
-    }
-
-    private fun loadInitialState() {
-        val current = getCounterUseCase.execute()
-        _state.value = CounterViewState(count = current)
-    }
-
     fun onIntent(intent: CounterViewIntent) {
-        viewModelScope.launch {
-            val current = getCounterUseCase.execute()
-            val newValue = when (intent) {
-                is CounterViewIntent.Increment -> current + 1
-                is CounterViewIntent.Decrement -> current - 1
-            }
-            val update = updateCounterUseCase.execute(newValue)
-            _state.value = CounterViewState(count = update)
-
-            if (update == 10) {
-                _uiEvent.emit(UiEvent.ShowToast("Достигнуто значение 10!"))
-            }
-
-            if (update == 20) {
-                _uiEvent.emit(UiEvent.ShowToast("Достигнуто значение 20!"))
-            }
+        when (intent) {
+            CounterViewIntent.Decrement -> decrement()
+            CounterViewIntent.Increment -> increment()
         }
+    }
+
+    private fun decrement() {
+        updateState {
+            val newValue = it.count - 1
+            updateCounterUseCase.execute(newValue)
+            showToast(newValue)
+            it.copy(count = newValue)
+        }
+    }
+
+    private fun increment() {
+        updateState {
+            val newValue = it.count + 1
+            updateCounterUseCase.execute(newValue)
+            showToast(newValue)
+            it.copy(count = newValue)
+        }
+    }
+
+    private fun showToast(newValue: Int) {
+        if (newValue == 10) {
+            _uiEvent.tryEmit(UiEvent.ShowToast("Достигнуто значение 10!"))
+        }
+
+        if (newValue == 20) {
+            _uiEvent.tryEmit(UiEvent.ShowToast("Достигнуто значение 20!"))
+        }
+    }
+
+    private fun updateState(reduce: (CounterViewState) -> CounterViewState) {
+        _state.update(reduce)
     }
 }
