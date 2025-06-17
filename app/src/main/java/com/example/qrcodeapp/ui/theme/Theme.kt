@@ -1,4 +1,4 @@
-package com.example.qrcodeapp.theme
+package com.example.qrcodeapp.ui.theme
 
 import android.app.Activity
 import android.os.Build

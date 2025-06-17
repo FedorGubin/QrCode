@@ -1,6 +1,6 @@
 package com.example.qrcodeapp.di
 
-import com.example.qrcodeapp.MainActivity
+import com.example.qrcodeapp.ui.MainActivity
 import com.example.qrcodeapp.ui.counter.CounterViewModel
 import com.example.qrcodeapp.domain.usecase.GetCounterUseCase
 import com.example.qrcodeapp.domain.usecase.UpdateCounterUseCase
@@ -17,6 +17,6 @@ import javax.inject.Singleton
 ])
 @Singleton
 interface AppComponent {
-    fun inject(activity: BaseActivity)
+    fun inject(activity: MainActivity)
     fun provideGetRandomJokeUseCase(): GetRandomJokeUseCase
 }
