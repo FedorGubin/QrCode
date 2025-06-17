@@ -1,4 +1,4 @@
-package com.example.qrcodeapp.ui
+package com.example.qrcodeapp.ui.counter
 
 sealed class CounterViewIntent {
     data object Increment : CounterViewIntent()

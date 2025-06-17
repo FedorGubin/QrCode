@@ -7,7 +7,8 @@ import androidx.activity.compose.setContent
 import androidx.lifecycle.lifecycleScope
 import com.example.qrcodeapp.data.api.JokeApiService
 import com.example.qrcodeapp.data.api.KtorClientProvider
-import com.example.qrcodeapp.ui.CounterScreen
+import com.example.qrcodeapp.ui.counter.CounterScreen
+import com.example.qrcodeapp.ui.counter.CounterViewModel
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {

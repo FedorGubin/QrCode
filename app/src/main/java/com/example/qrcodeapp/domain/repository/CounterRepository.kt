@@ -1,4 +1,4 @@
-package com.example.qrcodeapp.domain
+package com.example.qrcodeapp.domain.repository
 
 interface CounterRepository {
     fun getCounter(): Int

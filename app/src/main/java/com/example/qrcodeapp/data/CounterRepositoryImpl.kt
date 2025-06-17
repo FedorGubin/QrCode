@@ -1,7 +1,7 @@
 package com.example.qrcodeapp.data
 
 import android.content.Context
-import com.example.qrcodeapp.domain.CounterRepository
+import com.example.qrcodeapp.domain.repository.CounterRepository
 import androidx.core.content.edit
 
 class CounterRepositoryImpl(context: Context): CounterRepository {

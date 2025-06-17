@@ -1,11 +1,9 @@
-package com.example.qrcodeapp
+package com.example.qrcodeapp.ui.counter
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.qrcodeapp.domain.GetCounterUseCase
-import com.example.qrcodeapp.domain.UpdateCounterUseCase
-import com.example.qrcodeapp.ui.CounterViewIntent
-import com.example.qrcodeapp.ui.CounterViewState
+import com.example.qrcodeapp.domain.usecase.GetCounterUseCase
+import com.example.qrcodeapp.domain.usecase.UpdateCounterUseCase
 import com.example.qrcodeapp.ui.UiEvent
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

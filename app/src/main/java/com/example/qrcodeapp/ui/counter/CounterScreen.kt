@@ -1,4 +1,4 @@
-package com.example.qrcodeapp.ui
+package com.example.qrcodeapp.ui.counter
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
@@ -20,7 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.qrcodeapp.CounterViewModel
+import com.example.qrcodeapp.ui.UiEvent
 
 @Composable
 fun CounterScreen(viewModel: CounterViewModel) {
