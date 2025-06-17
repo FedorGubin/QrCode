@@ -3,7 +3,7 @@ package com.example.qrcodeapp.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.qrcodeapp.ui.counter.CounterViewModel
-import com.example.qrcodeapp.ui.counter.ViewModelFactory
+import com.example.qrcodeapp.ui.base.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

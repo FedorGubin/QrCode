@@ -1,7 +1,6 @@
 package com.example.qrcodeapp.ui.counter
 
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,8 +22,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.qrcodeapp.ui.UiEvent
-import kotlin.getValue
 
 @Composable
 fun CounterScreen(viewModelFactory: ViewModelProvider.Factory) {
@@ -37,7 +34,7 @@ fun CounterScreen(viewModelFactory: ViewModelProvider.Factory) {
     LaunchedEffect(Unit) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.ShowToast -> {
+                is CounterUiEvent.ShowToast -> {
                     Toast.makeText(context, event.message, Toast.LENGTH_SHORT).show()
                 }
             }

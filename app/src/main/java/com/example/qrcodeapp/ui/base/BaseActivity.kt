@@ -1,4 +1,4 @@
-package com.example.qrcodeapp.ui
+package com.example.qrcodeapp.ui.base
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

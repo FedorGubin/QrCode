@@ -1,4 +1,4 @@
-package com.example.qrcodeapp.ui.counter
+package com.example.qrcodeapp.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

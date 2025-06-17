@@ -2,7 +2,7 @@ package com.example.qrcodeapp
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import com.example.qrcodeapp.ui.BaseActivity
+import com.example.qrcodeapp.ui.base.BaseActivity
 import com.example.qrcodeapp.ui.counter.CounterScreen
 
 class MainActivity : BaseActivity() {
