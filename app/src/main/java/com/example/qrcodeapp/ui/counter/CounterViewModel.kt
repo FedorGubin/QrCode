@@ -39,11 +39,11 @@ class CounterViewModel @Inject constructor(
 
     private fun showToast(newValue: Int) {
         if (newValue == 10) {
-            _uiEvent.tryEmit(CounterUiEvent.ShowToast("Достигнуто значение 10!"))
+            updateUiEvent(CounterUiEvent.ShowToast("Достигнуто значение 10!"))
         }
 
         if (newValue == 20) {
-            _uiEvent.tryEmit(CounterUiEvent.ShowToast("Достигнуто значение 20!"))
+            updateUiEvent(CounterUiEvent.ShowToast("Достигнуто значение 20!"))
         }
     }
 }
