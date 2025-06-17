@@ -1,6 +1,7 @@
 package com.example.qrcodeapp.ui.counter
 
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,10 +21,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.qrcodeapp.ui.UiEvent
+import kotlin.getValue
 
 @Composable
-fun CounterScreen(viewModel: CounterViewModel) {
+fun CounterScreen(viewModelFactory: ViewModelProvider.Factory) {
+
+    val viewModel = viewModel<CounterViewModel>(factory = viewModelFactory)
+
     val state by viewModel.state.collectAsState()
     val context = LocalContext.current
 

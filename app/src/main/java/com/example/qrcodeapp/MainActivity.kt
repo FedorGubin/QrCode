@@ -1,37 +1,24 @@
 package com.example.qrcodeapp
 
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.lifecycle.lifecycleScope
-import com.example.qrcodeapp.data.api.JokeApiService
-import com.example.qrcodeapp.data.api.KtorClientProvider
+import com.example.qrcodeapp.ui.BaseActivity
 import com.example.qrcodeapp.ui.counter.CounterScreen
-import com.example.qrcodeapp.ui.counter.CounterViewModel
-import kotlinx.coroutines.launch
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val appComponent = (application as App).appComponent
-        val viewModel = CounterViewModel(
-            appComponent.provideGetCounterUseCase(),
-            appComponent.provideUpdateCounterUseCase()
-        )
-        val api = JokeApiService(KtorClientProvider.client)
-
-        lifecycleScope.launch {
-            val joke = api.getRandomJoke()
-            Log.d("JokeTest", joke.text)
-        }
-
-        appComponent.inject(viewModel)
+//        val api = JokeApiService(KtorClientProvider.client)
+//
+//        lifecycleScope.launch {
+//            val joke = api.getRandomJoke()
+//            Log.d("JokeTest", joke.text)
+//        }
 
         setContent {
-            CounterScreen(viewModel)
+            CounterScreen(viewModelFactory)
         }
     }
 }

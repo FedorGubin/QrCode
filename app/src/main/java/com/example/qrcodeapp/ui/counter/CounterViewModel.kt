@@ -16,10 +16,12 @@ class CounterViewModel @Inject constructor(
     private val getCounterUseCase: GetCounterUseCase,
     private val updateCounterUseCase: UpdateCounterUseCase
 ) : ViewModel() {
-    private val _state = MutableStateFlow(CounterViewState())
+    private val _state = MutableStateFlow<CounterViewState>(CounterViewState())
     val state: StateFlow<CounterViewState> = _state
 
-    private val _uiEvent = MutableSharedFlow<UiEvent>()
+    private val _uiEvent = MutableSharedFlow<UiEvent>(replay = 1).apply {
+        tryEmit(UiEvent.ShowToast("show"))
+    }
     val uiEvent: SharedFlow<UiEvent> = _uiEvent
 
     init {
