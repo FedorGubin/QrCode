@@ -4,8 +4,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.hilt)
-    id("org.jetbrains.kotlin.kapt")
+//    alias(libs.plugins.hilt)
 }
 
 android {
@@ -80,9 +79,9 @@ dependencies {
     implementation(libs.dagger)
 
 //    Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-    implementation(libs.hilt.navigation.compose)
+//    implementation(libs.hilt.android)
+//    ksp(libs.hilt.compiler)
+//    implementation(libs.hilt.navigation.compose)
 
 //    Ktor
     implementation(libs.ktor.client.core)
