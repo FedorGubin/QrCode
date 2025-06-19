@@ -1,6 +1,5 @@
 package com.example.qrcodeapp.di
 
-import com.example.qrcodeapp.data.api.JokeApiService
 import dagger.Module
 import dagger.Provides
 import io.ktor.client.HttpClient
@@ -23,11 +22,5 @@ class NetworkModule {
                 })
             }
         }
-    }
-
-    @Provides
-    @Singleton
-    fun provideJokeApiService(httpClient: HttpClient): JokeApiService {
-        return JokeApiService(client = httpClient)
     }
 }
