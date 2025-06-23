@@ -104,4 +104,7 @@ dependencies {
 
 //    Decompose
     implementation(libs.decompose)
+
+//    Navigation
+    implementation(libs.androidx.navigation.compose)
 }

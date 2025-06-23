@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.qrcodeapp.domain.repository.JokeRepository
 import com.example.qrcodeapp.ui.base.BaseActivity
 import com.example.qrcodeapp.ui.counter.CounterScreen
+import com.example.qrcodeapp.ui.joke.JokeScreen
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,7 +25,7 @@ class MainActivity : BaseActivity() {
         }
 
         setContent {
-            CounterScreen(viewModelFactory)
+            JokeScreen(viewModelFactory)
         }
     }
 }

@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 class JokeViewModel @Inject constructor(
     private val getRandomJokeUseCase: GetRandomJokeUseCase
-): BaseViewModel<JokeViewState, JokeUiEvent, JokeViewIntent>(
+) : BaseViewModel<JokeViewState, JokeUiEvent, JokeViewIntent>(
     JokeViewState()
 ) {
     private fun loadJoke() {
@@ -40,7 +40,7 @@ class JokeViewModel @Inject constructor(
     override fun onIntent(intent: JokeViewIntent) {
         when (intent) {
             is JokeViewIntent.LoadJoke -> {
-
+                loadJoke()
             }
         }
     }
