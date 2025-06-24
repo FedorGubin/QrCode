@@ -19,7 +19,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun JokeScreen(viewModelFactory: ViewModelProvider.Factory) {
+fun JokeScreen(
+    viewModelFactory: ViewModelProvider.Factory,
+    onBack: () -> Unit
+) {
     val viewModel = viewModel<JokeViewModel>(factory = viewModelFactory)
     val state by viewModel.state.collectAsState()
 
@@ -46,6 +49,10 @@ fun JokeScreen(viewModelFactory: ViewModelProvider.Factory) {
             viewModel.onIntent(JokeViewIntent.LoadJoke)
         }) {
             Text("Показать шутку")
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        Button(onClick = onBack) {
+            Text("Назад к счётчику")
         }
     }
 }

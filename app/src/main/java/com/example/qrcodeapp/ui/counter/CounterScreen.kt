@@ -24,10 +24,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun CounterScreen(viewModelFactory: ViewModelProvider.Factory) {
+fun CounterScreen(
+    viewModelFactory: ViewModelProvider.Factory,
+    onNavigateToJoke: () -> Unit
+) {
 
     val viewModel = viewModel<CounterViewModel>(factory = viewModelFactory)
-
     val state by viewModel.state.collectAsState()
     val context = LocalContext.current
 
@@ -57,6 +59,10 @@ fun CounterScreen(viewModelFactory: ViewModelProvider.Factory) {
             Spacer(modifier = Modifier.width(16.dp))
             Button(onClick = { viewModel.onIntent(CounterViewIntent.Increment) }) {
                 Text("+")
+            }
+            Spacer(modifier = Modifier.width(16.dp))
+            Button(onClick = onNavigateToJoke) {
+                Text("Посмотреть шутку")
             }
         }
     }
