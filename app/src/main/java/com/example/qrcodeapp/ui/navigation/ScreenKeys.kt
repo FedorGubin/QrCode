@@ -8,3 +8,6 @@ object CounterScreenKey: NavKey
 
 @Serializable
 object JokeScreenKey: NavKey
+
+@Serializable
+data class JokeDetailScreenKey(val jokeText: String): NavKey

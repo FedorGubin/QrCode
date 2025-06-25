@@ -21,7 +21,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 @Composable
 fun JokeScreen(
     viewModelFactory: ViewModelProvider.Factory,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    onNavigateToDetail: (String) -> Unit
 ) {
     val viewModel = viewModel<JokeViewModel>(factory = viewModelFactory)
     val state by viewModel.state.collectAsState()
@@ -53,6 +54,16 @@ fun JokeScreen(
         Spacer(modifier = Modifier.height(24.dp))
         Button(onClick = onBack) {
             Text("Назад к счётчику")
+        }
+
+        if (!state.jokeText.isNullOrEmpty()) {
+            Spacer(modifier = Modifier.height(24.dp))
+            Button(onClick = {
+                onNavigateToDetail(state.jokeText!!)
+            }) {
+                Text("Подробнее")
+            }
+
         }
     }
 }

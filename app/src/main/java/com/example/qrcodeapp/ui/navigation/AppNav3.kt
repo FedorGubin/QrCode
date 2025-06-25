@@ -7,6 +7,7 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.example.qrcodeapp.ui.counter.CounterScreen
+import com.example.qrcodeapp.ui.joke.JokeDetailScreen
 import com.example.qrcodeapp.ui.joke.JokeScreen
 
 @Composable
@@ -26,7 +27,16 @@ fun AppNav3(viewModelFactory: ViewModelProvider.Factory) {
             entry<JokeScreenKey> {
                 JokeScreen(
                     viewModelFactory = viewModelFactory,
-                    onBack = { backStack.removeLastOrNull() }
+                    onBack = { backStack.removeLastOrNull() },
+                    onNavigateToDetail = {
+                        backStack.add(JokeDetailScreenKey(it))
+                    }
+                )
+            }
+            entry<JokeDetailScreenKey> {
+                JokeDetailScreen(
+                    jokeText = it.jokeText,
+                    onBack = {backStack.removeLastOrNull()}
                 )
             }
         }
