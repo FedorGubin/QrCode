@@ -1,11 +1,8 @@
 package com.example.qrcodeapp.ui.joke
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.qrcodeapp.domain.usecase.GetRandomJokeUseCase
 import com.example.qrcodeapp.ui.base.BaseViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -14,6 +11,10 @@ class JokeViewModel @Inject constructor(
 ) : BaseViewModel<JokeViewState, JokeUiEvent, JokeViewIntent>(
     JokeViewState()
 ) {
+    init {
+        loadJoke()
+    }
+
     private fun loadJoke() {
         viewModelScope.launch {
             updateState { it.copy(isLoading = true, error = null) }

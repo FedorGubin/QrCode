@@ -3,11 +3,30 @@ package com.example.qrcodeapp.ui.navigation
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
-@Serializable
-object CounterScreenKey: NavKey
+interface FirstStack: NavKey
+
+interface SecondStack: NavKey
+
+interface ThirdStack: NavKey
+
 
 @Serializable
-object JokeScreenKey: NavKey
+object CounterScreenKey: FirstStack
 
 @Serializable
-data class JokeDetailScreenKey(val jokeText: String): NavKey
+object JokeScreenKey: FirstStack
+
+@Serializable
+data class JokeDetailScreenKey(val jokeText: String): FirstStack
+
+
+
+
+
+
+
+@Serializable
+object SecondScreen: SecondStack
+
+@Serializable
+object ThirdScreen: ThirdStack

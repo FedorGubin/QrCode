@@ -27,10 +27,6 @@ fun JokeScreen(
     val viewModel = viewModel<JokeViewModel>(factory = viewModelFactory)
     val state by viewModel.state.collectAsState()
 
-    LaunchedEffect(Unit) {
-        viewModel.onIntent(JokeViewIntent.LoadJoke)
-    }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
