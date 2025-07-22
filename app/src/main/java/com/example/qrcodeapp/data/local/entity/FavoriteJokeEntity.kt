@@ -9,5 +9,5 @@ data class FavoriteJokeEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     @ColumnInfo(name = "joke_text")
-    val joinText: String,
+    val jokeText: String,
 )
