@@ -7,10 +7,8 @@ import com.example.qrcodeapp.data.local.entity.FavoriteJokeEntity
 
 @Database(
     entities = [FavoriteJokeEntity::class],
-    version = 1,
-    exportSchema = false
+    version = 1
 )
-
-abstract class AppDatabase: RoomDatabase() {
-    abstract fun favoriteJokeDao(): FavoriteJokeDao
+abstract class AppDataBase: RoomDatabase() {
+    abstract fun favoriteJokeData(): FavoriteJokeDao
 }
