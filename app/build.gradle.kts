@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.room.plugin)
+
 //    alias(libs.plugins.hilt)
 }
 
@@ -22,6 +24,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+    }
+
+    room {
+        schemaDirectory ("$projectDir/schemas")
     }
 
     buildTypes {
