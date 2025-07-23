@@ -21,8 +21,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 @Composable
 fun JokeScreen(
     viewModelFactory: ViewModelProvider.Factory,
+    onNavigateToJokeFavorite: () -> Unit,
     onBack: () -> Unit,
-    onNavigateToDetail: (String) -> Unit
+    onNavigateToDetail: (String) -> Unit,
+
 ) {
     val viewModel = viewModel<JokeViewModel>(factory = viewModelFactory)
     val state by viewModel.state.collectAsState()
@@ -60,6 +62,14 @@ fun JokeScreen(
                 Text("Подробнее")
             }
 
+        }
+        Button(onClick = onNavigateToJokeFavorite) {
+            Text("Избранные шутки")
+        }
+        Button(onClick = {
+            viewModel.onIntent(JokeViewIntent.AddFavoriteJoke(jokeText = state.jokeText ?: ""))
+        }) {
+            Text("Избранное")
         }
     }
 }
