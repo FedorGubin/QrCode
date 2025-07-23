@@ -17,6 +17,9 @@ object CounterScreenKey: FirstStack
 object JokeScreenKey: FirstStack
 
 @Serializable
+object  FavoriteJokeScreenKey: FirstStack
+
+@Serializable
 data class JokeDetailScreenKey(val jokeText: String): FirstStack
 
 
