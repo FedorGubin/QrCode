@@ -22,6 +22,7 @@ import androidx.navigation3.ui.NavDisplay
 import com.example.qrcodeapp.ui.counter.CounterScreen
 import com.example.qrcodeapp.ui.joke.JokeDetailScreen
 import com.example.qrcodeapp.ui.joke.JokeScreen
+import com.example.qrcodeapp.ui.joke.favorite_joke.FavoriteJokeScreen
 
 @Composable
 fun AppNav3(viewModelFactory: ViewModelProvider.Factory) {
@@ -48,6 +49,7 @@ fun AppNav3(viewModelFactory: ViewModelProvider.Factory) {
                 entry<JokeScreenKey> {
                     JokeScreen(
                         viewModelFactory = viewModelFactory,
+                        onNavigateToJokeFavorite = {backStackFirstFlow.add(FavoriteJokeScreenKey)},
                         onBack = { backStackFirstFlow.removeLastOrNull() },
                         onNavigateToDetail = { backStackFirstFlow.add(JokeDetailScreenKey(it)) }
                     )
@@ -61,6 +63,12 @@ fun AppNav3(viewModelFactory: ViewModelProvider.Factory) {
                                 backStackFirstFlow.removeRange(counterIndex + 1, backStackFirstFlow.size)
                             }
                         }
+                    )
+                }
+                entry<FavoriteJokeScreenKey> {
+                    FavoriteJokeScreen(
+                        viewModelFactory = viewModelFactory,
+                        onBack = { backStackFirstFlow.removeLastOrNull() }
                     )
                 }
 
